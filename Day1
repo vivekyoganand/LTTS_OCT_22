@@ -1,0 +1,20 @@
+1  hostname
+    2  netstat -tulpn | grep :80
+    3  netstat -tulpn | grep :22
+    4  yum install httpd -y
+    5  systemctl start httpd
+    6  netstat -tulpn | grep :22
+    7  netstat -tulpn | grep :80
+    8  systemctl stop httpd
+    9  netstat -tulpn | grep :80
+   10  systemctl start httpd
+   11  netstat -tulpn
+   12  history 
+   13  curl -Lkv https://www.ujjivansfb.in/
+   14  curl -Lk v https://www.ujjivansfb.in/ --head
+   15  curl --help
+   16  curl blue.com
+   17  curl blue123456.com
+   18  curl -Lkv blue123456.com
+   19  yum install git
+   20  history 
