@@ -18,3 +18,55 @@
    18  curl -Lkv blue123456.com
    19  yum install git
    20  history 
+ 21  logout
+   22  exit
+   23  cd
+   24  clear
+   25  hostnamectl set-hostname aws
+   26  bash
+   27  exit
+   28  cd /var/www/html/
+   29  git clone https://github.com/vivekyoganand/websatellite.git
+   30  ls -ltr
+   31  cd websatellite/
+   32  ls -ltr
+   33  pwd
+   34  cd
+   35  systemctl status httpd
+   36  systemctl start httpd
+   37  cd /var/www/html/
+   38  ls -ltr
+   39  cd
+   40  lsblk
+   41  lsblk
+   42  lsblk
+   43  lsblk
+   44  mkdir /CDRVIE
+   45  mkdir /CDRIVE
+   46  mkdir /DDRIVE
+   47  mkdir /EDRIVE
+   48  ls -ltr
+   49  cd /
+   50  ls -lrte
+   51  ls -lrt
+   52  rm -rf CDRVIE
+   53  ls -l | tail
+   54  ls -ltr
+   55  lsblk
+   56  mkfs.xfs /dev/xvdf
+   57  mount /dev/xvdf /CDRIVE/
+   58  lsblk
+   59  mount /dev/xvdg /DDRIVE/
+   60  mkfs.xfs /dev/xvdg
+   61  mount /dev/xvdg /DDRIVE/
+   62  lsblk
+   63  cd /CDRIVE/
+   64  touch hi
+   65  ls l
+   66  ls -l
+   67  touch file{1..10000}
+   68  ls
+   69  cd
+   70  ls -l
+   71  lsblk
+   72  history 
