@@ -18,3 +18,21 @@ ot@docker ~]# history
    14  docker images
    15  docker ps
    16  history 
+   
+   oot@72597f9afa62:/usr/share/nginx/html# history 
+    1  apt update -y
+    2  apt install git 
+    3  whoami
+    4  who
+    5  w
+    6  cd /usr/share/nginx/html/
+    7  git clone https://github.com/vivekyoganand/Yoga.git
+    8  ls
+    9  histq
+   10  history 
+ 1  cd
+    2  docker pull nginx
+    3  docker run -itd --name yogapp -p 8080:80 nginx
+    4  docker exec -it yogapp /bin/bash
+    5  history 
+
