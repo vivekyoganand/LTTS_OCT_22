@@ -36,3 +36,26 @@ ot@docker ~]# history
     4  docker exec -it yogapp /bin/bash
     5  history 
 
+1  cd
+    2  docker ps
+    3  docker commit --help
+    4  docker commit -m "first commit" 72597f9afa62 yogaguru:latest
+    5  docker images
+    6  docker login
+    7  docker images
+    8  docker tag --help
+    9  docker tag yogaguru:latest vivekyoganand/larsontech:v1
+   10  docker push vivekyoganand/larsontech:v1
+   11  history 
+   12  docker tag yogaguru:latest vivekyoganand/larsontech:v2
+   13  docker push vivekyoganand/larsontech:v2
+   14  history 
+   15  docker images
+   16  docker history vivekyoganand/larsontech:v2
+   17  ls -l
+   18  mkdir easy
+   19  cd easy/
+   20  vi Dockerfile
+   21  docker build -t ghost .
+   22  history 
+
