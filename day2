@@ -1,0 +1,20 @@
+ot@docker ~]# history 
+    yum install docker -y
+    systemctl start docker
+    docker run -itd --name musicapp -p 9090:80 vivekyoganand/nginxbebusy:firsttry
+    cd
+    2  docker ps
+    3  netstat -tupln 
+    4  curl -kv localhost:9090
+    5  curl -kv localhost:9091
+    6  curl localhost:9091
+    7  curl localhost:9090
+    8  vi Dockerfile
+    9  docker build -t ubuntu .
+   10  vi Dockerfile
+   11  docker build -t ubuntu .
+   12  vi Dockerfile
+   13  docker build -t ubuntu .
+   14  docker images
+   15  docker ps
+   16  history 
