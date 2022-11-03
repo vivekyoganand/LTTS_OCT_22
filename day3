@@ -1,0 +1,50 @@
+Docker Volume
+==
+---Outside---
+
+65  docker volume ls
+   66  docker volume create vivke
+   67  docker volume create ram
+   68  docker volume create raj
+   69  docker volume ls
+   70  docker run -it
+   71  docker run --help
+   72  docker run --help | grep -i mount
+   73  docker run -itd --name easy --mount ram nginx
+   74  docker run -itd --name easy --mount source=ram,target=/app -p 1234:80 nginx
+   75  docker exec -it 3fa /bin/bash
+   76  docker exec -it 3fa /bin/bash
+   77  history 
+   78  docker volume ls
+   79  cd /var/
+   80  ls -l
+   81  cd
+   82  find / -name ram
+   83  cd /var/lib/docker/volumes/ram
+   84  ls -l
+   85  cd _data
+   86  ls -ltr
+   87  pwd
+   88  touch red{1..10}.sh
+   89  ls -ltr
+   90  cd
+   91  docke rps
+   92  docker ps
+   93  docker exec -it 3fa /bin/bash
+   94  history 
+
+
+---Inside---
+1  cd /app
+    2  ls -l
+    3  pwd
+    4  exit
+    5  cd /app
+    6  touch easy{1..10}.py
+    7  ls
+    8  ls -l
+    9  exit
+   10  cd /app
+   11  ls -ltr
+   12  history
+ 
