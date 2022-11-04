@@ -1,0 +1,59 @@
+Master
+==
+139  nslookup google.com
+  140  nslookup 142.251.42.78
+  141  arp
+  142  ifconfig 
+  143  systemctl stop docker
+  144  ps -ef | grep -i docker
+  145  systemctl status docker
+  146  ifconfig 
+  147  init 6
+  148  docker info
+  149  docker network ls
+  
+  
+  Docker swarm
+  ===
+  Master
+  -------
+  150  docker swarm init
+  151  docker node ls
+  152  docker node ls
+  153  docker network ls
+  154  ifconfig 
+  155  docker ps
+  156  docker stop $(docker ps -q -a)
+  157  docker ps
+  158  ifconfig 
+  159  docker node ls
+  160  docker run service 
+  161  docker service create --help
+  162  history 
+  163  docker service create --name nginx nginx 
+  164  docker service ls
+  165  docker service create --name nginxx --replicas=5 nginx 
+  166  docker service ls
+  167  docker service create --name nginxy --replicas=5 -p 567:80 nginx 
+  168  docker ps
+  169* docker service 
+  170  docker service create --name nginxy --replicas=2 -p 567:80 nginx 
+  171  docker ps
+  172  docker service --replicas=2 nginxy
+  175  docker service update --replicas=2 nginxy
+  176  docker service ls
+  177  history 
+
+
+Worker
+==
+1  yum install docker -y
+    2  sysemctl start docker 
+    3  systemctl start docker 
+    4  docker info
+    5  docker swarm join --token SWMTKN-1-4dhluf5zex9sp6ohhrx2ycuxkrsc8ml8lsygl3izx7ug50vfsp-33s88kz2rqegih4e573gvkhut 172.31.33.164:2377
+    6  dockerps
+    7  docker ps
+    8  docker ps
+    9  docker ps
+   10  history 
