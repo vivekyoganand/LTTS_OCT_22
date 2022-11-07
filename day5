@@ -1,0 +1,265 @@
+Kubernetes
+===
+  106  kubectl get pods -A -o wide | grep -i worker-2
+  107  kubectl get pods -A -o wide | grep -i example
+  108  #Completed
+  109  #Exited
+  110  #Dead
+  111  #Terminated
+  
+  113  kubectl get pods -A -o wide | grep -i example
+  114  kubectl get node
+  115  kubectl get pods -A -o wide | grep -i example
+  \
+  117  kubectl get pods -A -o wide | grep -i example
+  118  kubectl get nodes
+  119  kubectl get pods -A -o wide | grep -i example
+  120  kubectl get pods -A -o wide | grep -i Terminating
+  121  kubectl get nodes
+  122 
+  123 
+  124  kubectl get nodes
+  125  watch oc get nodes
+  126  kubectl get nodes
+  127  
+  128  kubectl get pods -A | grep -i worker-2
+  129  kubectl get pods -A -o wide | grep -i worker-2
+  130  kubectl get pods -A -o wide | grep -i worker-2 | wc -l
+  131 
+  132  kubectl get pods -A -o wide | grep -i worker-2
+  133  kubectl get nodes
+  134  kubectl get pods -A -o wide | grep -i worker-2
+  135  watch kubectl get pods -A -o wide | grep -i worker-2
+  136  kubectl get pods -A -o wide | grep -i worker-2
+  137  kubectl get nodes
+  138  kubectl get pods -A -o wide | grep -i worker-2
+  139  kubectl get pods -A -o wide | grep -i worker-2 | wc -l
+  140  kubectl get nodes
+  141  kubectl get pods -A -o wide | grep -i worker-2
+  142  kubectl get nodes
+  143  
+  144  kubectl get nodes
+  145  watch kubectl get nodes
+  146 
+  147  kubectl get nodes
+  148  kubectl describe node/master-0.vyoganan.lab.psi.pnq2.redhat.com
+  149 
+  150  kubectl get nodes
+  151  kubectl new-app httpd
+  152  kubectl run --image=httpd
+  153  kubectl run xyz --image=httpd
+  154  kubectl get pods -o wide | grep -i xyz
+  155  
+  156  kubectl get nodes
+  157  
+  158  kubectl get nodes
+  159 
+  160 
+  161  kubectl run abc --image=httpd
+  162  kubectl get pods -o wide | grep -i abc
+  163  kubectl describe pod/abc
+  164  kubectl get pod/abc -o json
+  165  kubectl get pods -o wide | grep -i abc
+  166 
+  167  kubectl get pods -o wide | grep -i abc
+  168  kubectl get pods -A -o wide | grep -i abc
+  169  kubectl edit pod/abc -o yaml
+  170  kubectl label nodes worker-1.vyoganan.lab.psi.pnq2.redhat.com app=Prod
+  171  kubectl get nodes --show-labels
+  172  wget apiVersion: v1
+  173  kind: Pod
+  174  metadata:
+  175    name: nginx
+  176  spec:
+  177    affinity:
+  178      nodeAffinity:
+  179        requiredDuringSchedulingIgnoredDuringExecution:
+  180          nodeSelectorTerms:
+  181          - matchExpressions:
+  182            - key: disktype
+  183              operator: In
+  184              values:
+  185              - ssd            
+  186    containers:
+  187    - name: nginx
+  188      image: nginx
+  189      imagePullPolicy: IfNotPresent
+  190  wget https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  191  kubectl
+  192  wget 
+  193  sudo yum install wget -y
+  194  wget https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  195  curl -kv https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  196  vi ns.yaml
+  197  kubectl apply -f ns.yaml 
+  198  kubectl new-project ns
+  199  vi ns.yaml
+  200  kubectl create ns nsvivke
+  201  kubectl create ns nsvivek
+  202  kubectl get ns
+  203  kubectl delete ns nsvivke
+  204  kubectl apply -f ns.yaml 
+  205  kubectl get pods -n nsvivek
+  206  kubectl get pods -n nsvivek -o wide
+  207  kubectl get nodes --show-labels
+  208  kubectl label node worker-0.vyoganan.lab.psi.pnq2.redhat.com owner=sakthiman
+  209  kubectl get nodes --show-labels
+  210 
+  211  kubectl get nodes
+  212  kubectl get nodes --show-labels
+  213  ls -l
+  214  kubectl create ns worker0
+  215  vi ns.yaml
+  216  kubectl apply -f ns.yaml 
+  217  kubectl get pods -n worker0 
+  218  kubectl get pods -n worker0 -o wide
+  219  kubectl get nodes --show-labels
+  220  kubectl label node master-0.vyoganan.lab.psi.pnq2.redhat.com owner=superman
+  221  kubectl get nodes --show-labels
+  222  kubectl create ns master0
+  223  vi ns.yaml 
+  224  kubectl apply -f ns.yaml 
+  225  kubectl get pods -n master0 -o wide
+  226   106  kubectl get pods -A -o wide | grep -i worker-2
+  107  kubectl get pods -A -o wide | grep -i example
+  108  #Completed
+  109  #Exited
+  110  #Dead
+  111  #Terminated
+  112
+  113  kubectl get pods -A -o wide | grep -i example
+  114  kubectl get node
+  115  kubectl get pods -A -o wide | grep -i example
+  116  
+  117  kubectl get pods -A -o wide | grep -i example
+  118  kubectl get nodes
+  119  kubectl get pods -A -o wide | grep -i example
+  120  kubectl get pods -A -o wide | grep -i Terminating
+  121  kubectl get nodes
+  122 
+  123  
+  124  kubectl get nodes
+  125  watch oc get nodes
+  126  kubectl get nodes
+  127  
+  128  kubectl get pods -A | grep -i worker-2
+  129  kubectl get pods -A -o wide | grep -i worker-2
+  130  kubectl get pods -A -o wide | grep -i worker-2 | wc -l
+  131  
+  132  kubectl get pods -A -o wide | grep -i worker-2
+  133  kubectl get nodes
+  134  kubectl get pods -A -o wide | grep -i worker-2
+  135  watch kubectl get pods -A -o wide | grep -i worker-2
+  136  kubectl get pods -A -o wide | grep -i worker-2
+  137  kubectl get nodes
+  138  kubectl get pods -A -o wide | grep -i worker-2
+  139  kubectl get pods -A -o wide | grep -i worker-2 | wc -l
+  140  kubectl get nodes
+  141  kubectl get pods -A -o wide | grep -i worker-2
+  142  kubectl get nodes
+  143  
+  144  kubectl get nodes
+  145  watch kubectl get nodes
+  146 
+  147  kubectl get nodes
+  148  kubectl describe node/master-0.vyoganan.lab.psi.pnq2.redhat.com
+  149  
+  150  kubectl get nodes
+  151  kubectl new-app httpd
+  152  kubectl run --image=httpd
+  153  kubectl run xyz --image=httpd
+  154  kubectl get pods -o wide | grep -i xyz
+  155 
+  161  kubectl run abc --image=httpd
+  162  kubectl get pods -o wide | grep -i abc
+  163  kubectl describe pod/abc
+  164  kubectl get pod/abc -o json
+  165  kubectl get pods -o wide | grep -i abc
+  166  
+  167  kubectl get pods -o wide | grep -i abc
+  168  kubectl get pods -A -o wide | grep -i abc
+  169  kubectl edit pod/abc -o yaml
+  170  kubectl label nodes worker-1.vyoganan.lab.psi.pnq2.redhat.com app=Prod
+  171  kubectl get nodes --show-labels
+  172  wget apiVersion: v1
+  173  kind: Pod
+  174  metadata:
+  175    name: nginx
+  176  spec:
+  177    affinity:
+  178      nodeAffinity:
+  179        requiredDuringSchedulingIgnoredDuringExecution:
+  180          nodeSelectorTerms:
+  181          - matchExpressions:
+  182            - key: disktype
+  183              operator: In
+  184              values:
+  185              - ssd            
+  186    containers:
+  187    - name: nginx
+  188      image: nginx
+  189      imagePullPolicy: IfNotPresent
+  190  wget https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  191  kubectl
+  192  wget 
+  193  sudo yum install wget -y
+  194  wget https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  195  curl -kv https://k8s.io/examples/pods/pod-nginx-required-affinity.yaml
+  196  vi ns.yaml
+  197  kubectl apply -f ns.yaml 
+  198  kubectl new-project ns
+  199  vi ns.yaml
+  200  kubectl create ns nsvivke
+  201  kubectl create ns nsvivek
+  202  kubectl get ns
+  203  kubectl delete ns nsvivke
+  204  kubectl apply -f ns.yaml 
+  205  kubectl get pods -n nsvivek
+  206  kubectl get pods -n nsvivek -o wide
+  207  kubectl get nodes --show-labels
+  208  kubectl label node worker-0.vyoganan.lab.psi.pnq2.redhat.com owner=sakthiman
+  209  kubectl get nodes --show-labels
+  210 
+  211  kubectl get nodes
+  212  kubectl get nodes --show-labels
+  213  ls -l
+  214  kubectl create ns worker0
+  215  vi ns.yaml
+  216  kubectl apply -f ns.yaml 
+  217  kubectl get pods -n worker0 
+  218  kubectl get pods -n worker0 -o wide
+  219  kubectl get nodes --show-labels
+  220  kubectl label node master-0.vyoganan.lab.psi.pnq2.redhat.com owner=superman
+  221  kubectl get nodes --show-labels
+  222  kubectl create ns master0
+  223  vi ns.yaml 
+  224  kubectl apply -f ns.yaml 
+  225  kubectl get pods -n master0 -o wide
+  226 
+  227  kubectl get pods -n master0 -o wide
+  228  
+  229  kubectl get pods -n master0 -o wide
+  230  kubectl create ns masterzero
+  231  vi ns.yaml 
+  232  kubectl get nodes
+  233  kubectl apply -f ns.yaml 
+  234  kubectl get pods -n masterzero
+  235  kubectl get pods -n masterzero -o wide
+  236  kubectl get node -o wide
+  237  kubectl get node -o wide --show-labels
+  238  kubectl get pods -n masterzero -o wide
+  239  kubectl edit pod/nginx -n masterzero
+  240  kubectl get pod/nginx -n masterzero -o yaml >> masterzero.yaml
+  241  vi masterzero.yaml 
+  242  kubectl apply -f masterzero.yaml 
+  243  vi masterzero.yaml 
+  244  kubectl apply -f masterzero.yaml 
+  245  vi masterzero.yaml 
+  246  vi ns.yaml 
+  247  kubectl apply -f ns.yaml 
+  248  vi ns.yaml 
+  249  kubectl create ns masterone
+  250  kubectl apply -f ns.yaml 
+  251  kubectl get pods -o wide -n masterone
+  252  history   106  kubectl get pods -A -o wide | grep -i worker-2
+  
