@@ -1,0 +1,448 @@
+    1  minikube start
+    2  minikube kubectl -- get pods -A
+    3  kubectl config view
+    4  minikube kubectl -- get nodes
+    5  kubectl cluster-info
+    6  minikube kubectl cluster-info
+    7  vi test.yaml
+    8  alias kubectl="minikube kubectl"
+    9  kubectl cluster-info
+   10  kubectl get pods | grep Running
+   11  kubectl -- get pods -A | grep Running
+   12  kubectl -- get pods  | grep Running
+   13  kubectl run nginx --image=nginx
+   14  minikube kubectl --help
+   15  kubectl -- run nginx --image=nginx
+   16  kubectl -- get pods  | grep Running
+   17  minikube kubectl -- --help
+   18  minikube dashboard --url
+   19  kubectl --  create deployment hello-node --image=httpd
+   20  kubectl -- get pods  | grep Running
+   21  kubectl -- get all  | grep "hello-node"
+   22  kubectl --  create deployment hello-deploy --image=nginx
+   23  #Minikube
+   24  #Kubeadm
+   25  #KOPS
+   26  kubectl -- get all  | grep "hello-deploy"
+   27  history 
+   28  kubectl -- get pods -A | grep Running
+   29  kubectl -- explain pod
+   30  kubectl -- explain job
+   31  kubectl -- explain deployment
+   32  kubectl -- get pods -n default 
+   33  kubectl -- get pods/nginx -n default 
+   34  kubectl -- get pods/nginx -n default -o yaml | grep -i spec
+   35  kubectl -- get pods/nginx -n default -o yaml | grep -i spec -A 5
+   36  kubectl -- get pods/nginx -n default -o yaml
+   37  kubectl -- explain deployment
+   38  kubectl -- explain pod
+   39  vi nginx_app.yaml
+   40  kubectl -- apply nginx_app.yaml 
+   41  kubectl -- apply -f nginx_app.yaml 
+   42  vi nginx_app.yaml
+   43  kubectl -- explain pod
+   44  vi nginx_app.yaml
+   45  wget https://k8s.io/examples/application/deployment.yaml
+   46  vi deployment.yaml 
+   47  kubectl -- apply -f deployment.yaml 
+   48  kubectl -- get pods
+   49  kubectl -- get pods -o wide
+   50  kubectl -- get svc
+   51  kubectl -- get deploy
+   52  kubectl -- get nodes --show-lables
+   53  kubectl -- get nodes --show-labels
+   54  kubectl -- get nodes --show-labels | grep -i nginx
+   55  kubectl -- node lable minikube owner=vivek
+   56  kubectl --help
+   57  minikube kubectl -- --help
+   58  sudo yum install httpd
+   59  cd /etc/
+   60  ls -l
+   61  cd httpd/
+   62  ls -l
+   63  pwd
+   64  cd conf
+   65  ls -l
+   66  #ETCD
+   67  cd ..
+   68  cd conf.d
+   69  ls -l
+   70  cd 
+   71  cd /var
+   72  ls
+   73  ls -l
+   74  cd log
+   75  ls -l
+   76  cd httpd
+   77  sudo cd httpd
+   78  ls -l
+   79  cd
+   80  kubectl -- get node
+   81  history 
+   82  kubectl -- get pods
+   83  minikube kubectl -- get pods -A
+   84  alias kubectl="minikube kubectl"
+   85  kubectl -- get pods
+   86  kubectl create namespace devops-tools
+   87  kubectl create serviceaccount api-service-account -n devops-tools
+   88  minikube kubectl --help'
+   89  minikube kubectl --help
+   90  kubectl -- create serviceaccount api-service-account -n devops-tools
+   91  kubectl -- get sa
+   92  kubectl -- get sa -n devops-tools
+   93  kubectl -- explain ClusterRole
+   94  cat <<EOF | kubectl apply -f -
+   95  ---
+   96  apiVersion: rbac.authorization.k8s.io/v1
+   97  kind: ClusterRole
+   98  metadata:
+   99    name: api-cluster-role
+  100    namespace: devops-tools
+  101  rules:
+  102    - apiGroups:
+  103          - ""
+  104          - apps
+  105          - autoscaling
+  106          - batch
+  107          - extensions
+  108          - policy
+  109          - rbac.authorization.k8s.io
+  110      resources:
+  111        - pods
+  112        - componentstatuses
+  113        - configmaps
+  114        - daemonsets
+  115        - deployments
+  116        - events
+  117        - endpoints
+  118        - horizontalpodautoscalers
+  119        - ingress
+  120        - jobs
+  121        - limitranges
+  122        - namespaces
+  123        - nodes
+  124        - pods
+  125        - persistentvolumes
+  126        - persistentvolumeclaims
+  127        - resourcequotas
+  128        - replicasets
+  129        - replicationcontrollers
+  130        - serviceaccounts
+  131        - services
+  132      verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  133  EOF
+  134  cat <<EOF | kubectl apply -f -
+  135  ---
+  136  apiVersion: rbac.authorization.k8s.io/v1
+  137  kind: ClusterRole
+  138  metadata:
+  139    name: api-cluster-role
+  140    namespace: devops-tools
+  141  rules:
+  142    - apiGroups:
+  143          - ""
+  144          - apps
+  145          - autoscaling
+  146          - batch
+  147          - extensions
+  148          - policy
+  149          - rbac.authorization.k8s.io
+  150      resources:
+  151        - pods
+  152        - componentstatuses
+  153        - configmaps
+  154        - daemonsets
+  155        - deployments
+  156        - events
+  157        - endpoints
+  158        - horizontalpodautoscalers
+  159        - ingress
+  160        - jobs
+  161        - limitranges
+  162        - namespaces
+  163        - nodes
+  164        - pods
+  165        - persistentvolumes
+  166        - persistentvolumeclaims
+  167        - resourcequotas
+  168        - replicasets
+  169        - replicationcontrollers
+  170        - serviceaccounts
+  171        - services
+  172      verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  173  EOF
+  174  vi clusterrole.yaml
+  175  kubectl -- apply  -f  clusterrole.yaml 
+  176  kubectl -- api-resources
+  177  vi rolebinding.yaml
+  178  kubectl -- apply -f rolebinding.yaml 
+  179  kubectl -- auth can-i get pods --as=system:serviceaccount:devops-tools:api-service-account
+  180  kubectl -- get svc
+  181  kubectl -- get sa -n devops-tools
+  182  kubectl -- auth can-i delete pods --as=system:serviceaccount:devops-tools:api-service-account
+  183  #verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  184  kubectl -- auth can-i list pods --as=system:serviceaccount:devops-tools:api-service-account
+  185  kubectl -- auth can-i watch pods --as=system:serviceaccount:devops-tools:api-service-account
+  186  kubectl -- auth can-i create pods --as=system:serviceaccount:devops-tools:api-service-account
+  187  kubectl -- auth can-i create update --as=system:serviceaccount:devops-tools:api-service-account
+  188  kubectl -- auth can-i update pods --as=system:serviceaccount:devops-tools:api-service-account
+  189  kubectl -- auth can-i patch pods --as=system:serviceaccount:devops-tools:api-service-account
+  190  kubectl -- get serviceaccount api-service-account  -o=jsonpath='{.secrets[0].name}' -n devops-tools
+  191  alias k="kubectl --"
+  192  k get pods
+  193  alias kubectl="kubectl --"
+  194  kubectl get serviceaccount api-service-account  -o=jsonpath='{.secrets[0].name}' -n devops-tools
+  195  k get pods
+  196  env
+  197  exit
+  198  history 
+  199  minikube kubectl -- get pods -A
+  200  kubectl get pods
+  201  alias kubectl="minikube kubectl"
+  202  kubectl -- get pods
+  203  kubectl -- get rs
+  204  #RS & #RC
+  205  kubectl -- get rc
+  206  kubectl -- get ds
+  207  kubectl -- get bc
+  208  kubectl -- get ss
+  209  kubectl -- get roles --all-namespaces
+  210  kubectl -- get secrets
+  211  kubectl -- get secrets --all-namespaces
+  212  kubectl -- get secrets -n default 
+  213  kubectl -- get secrets/default-token-5p2p8 -n default -o yaml
+  214  history 
+  215  kubectl -- get node
+  216  kubectl -- get node -o wide
+  217  kubectl -- get svc 
+  218  kubectl create ns port_test
+  219  kubectl create ns porttest
+  220  kubectl -- get ns
+  221  kubectl -- run portd --image=httpd -n porttest
+  222  kubectl -- get pods -n porttest
+  223  kubectl -- get pods -o wide -n porttest
+  224  kubectl -- get all -o wide -n porttest
+  225  kubectl -- get svc -n porttest
+  226  kubectl -- create svc portd
+  227  kubectl create service -h
+  228  kubectl -- create svc portd -n porttest
+  229  kubectl -- create svc nodeport portd -n porttest
+  230  kubectl -- create svc nodeport 30051 portd -n porttest
+  231  kubectl -- create svc nodeport 30051 -n porttest
+  232  kubectl -- create svc nodeport portd --tcp=5678:8080 -n porttest
+  233  kubectl -- get svc
+  234  kubectl -- get svc -o wide
+  235  history 
+  236  kubectl -- get svc -o wide -n porttest
+  237  kubectl -- run portdd --image=httpd -n porttest
+  238  kubectl -- create svc nodeport portd --tcp=5678:8080 -n porttest
+  239  kubectl -- create svc nodeport portdd --tcp=5678:80 -n porttest
+  240  kubectl -- run portdd --image=httpd -n porttest
+  241  kubectl -- get svc -o wide -n porttest
+  242  kubectl -- get sc
+  243  kubectl -- get sc -o yaml
+  244  kubectl get deploy, no
+  245  kubectl -- get deploy, no
+  246  kubectl -- get deploy
+  247  kubectl -- get deploy,no
+  248  kubectl -- get deploy,no,svc
+  249  kubectl -- get deploy,no,svc,ep
+  250  kubectl get all --all-namespaces
+  251  kubectl -- get all --all-namespaces
+  252  kubectl -- run portdd --image=httpd -n porttest
+  253  kubectl -- get svc -o wide -n porttest
+  254  curl -kv 10.107.100.252:30334
+  255  curl -kv 10.107.100.252:5678
+  256  curl -kv 10.110.3.118:30334
+  257  curl -kv 10.110.3.118:80
+  258  curl -kv 10.110.3.118:5678
+  259  vi cluster_deploy.yaml
+  260  vi cluster_svc.yaml
+  261  kubectl -- create -f cluster_deploy.yaml 
+  262  kubectl -- create -f cluster_svc.yaml 
+  263  kubectl -- get service example-prod
+  264  kubectl -- get pods
+  265  kubectl exec -it my-deployment-744ff984cd-2g7sc -- bin/bash
+  266  kubectl -- exec -it my-deployment-744ff984cd-2g7sc -- bin/bash
+  267  curl -kv 10.96.0.1:443
+  268  kubectl -- get pods -o wide
+  269  curl -kv 172.17.0.13
+  270  vi cluster_nodeport.yaml
+  271  kubectl -- create -f cluster_nodeport.yaml 
+  272  kubectl -- delete pod my-deployment-744ff984cd-2g7sc my-deployment-744ff984cd-rxn7b
+  273  kubectl -- get pods -o wide
+  274  kubectl -- get deploy
+  275  kubectl -- delete deploy/ete my-deployment
+  276  kubectl -- delete deploy/my-deployment
+  277  kubectl -- get deploy
+  278  kubectl -- get pods -o wide
+  279  kubectl -- create -f cluster_deploy.yaml 
+  280  kubectl -- create -f cluster_nodeport.yaml 
+  281  kubectl -- get svc example-prod
+  282  kubectl -- delete svc example-prod
+  283  kubectl -- get svc example-prod
+  284  kubectl -- create -f cluster_nodeport.yaml 
+  285  kubectl -- get svc example-prod
+  286  kubectl -- get pods -o wide
+  287  curl -kv 10.104.227.23:32410
+  288  kubectl -- describe services example-prod
+  289  curl http://172.17.0.12:32410
+  290  curl http://10.104.227.23:32410
+  291  curl http://172.17.0.12:80
+  292  kubectl -- get nodes
+  293  kubectl -- get nodes --show-labels
+  294  kubectl -- label node/minikube owner=vivek
+  295  kubectl -- get nodes --show-labels
+  296  kubectl -- get nodes
+  297  vi pod_aff.yaml
+  298  kubectl -- create -f pod_aff.yaml 
+  299  kubectl -- get pods
+  300  kubectl -- delete pod/with-pod-affinity
+  301  kubectl -- get pods
+  302  vi pod_aff.yaml
+  303  kubectl -- create -f pod_aff.yaml 
+  304  kubectl -- apply -f pod_aff.yaml 
+  305  vi pod_aff.yaml
+  306  vi nodespecsel.ymal
+  307  vi nodespecsel.yaml
+  308  kubectl -- create -f nodespecsel.yaml 
+  309  kubectl -- get pods
+  310  kubectl -- get pods -o wide
+  311  kubectl -- describe pod/httpd
+  312  vi nodespecsel.yaml
+  313  kubectl -- get pods
+  314  kubectl -- delete pod/httpd
+  315  kubectl -- get pods
+  316  kubectl -- create -f nodespecsel.yaml 
+  317  kubectl -- get pods
+  318  vi nodeaffinity.yaml
+  319  cat nodeaffinity.yaml 
+  320  kubectl -- apply -f nodeaffinity.yaml 
+  321  kubectl -- get pods
+  322  kubectl -- describe with-node-affinity
+  323  kubectl -- describe pod/with-node-affinity
+  324  kubectl -- get pods
+  325  kubectl -- get pods| wc -l
+  326  kubectl -- get node --show-label
+  327  kubectl -- get node --show-lable
+  328  kubectl -- get nodes --show-lable
+  329  kubectl -- get nodes --show-labels
+  330  kubectl taint nodes/minikube owner=vivek:NoSchedule
+  331  kubectl -- taint nodes/minikube owner=vivek:NoSchedule
+  332  kubectl -- taint nodes minikube owner=vivek:NoSchedule
+  333  kubectl -- descibe node/minikube | grep -i minikube
+  334  kubectl -- describe node/minikube | grep -i minikube
+  335  kubectl -- describe node/minikube | grep -i taint
+  336  ls -ltr
+  337  vi nodespecsel.yaml
+  338  kubectl -- get pods -o wide
+  339  kubectl -- delete pod/httpd 
+  340  kubectl -- get pods -o wide
+  341  kubectl -- create -f nodespecsel.yaml 
+  342  vi nodespecsel.yaml
+  343  kubectl -- create -f nodespecsel.yaml 
+  344  kubectl -- get pods -o wide
+  345  kubectl -- run noselectorx --image=httpd
+  346  kubectl -- get pods -o wide
+  347  kubectl -- taint nodes minikube owner=vivek:NoSchedule-
+  348  kubectl -- get pods -o wide
+  349  history 
+  350  #kubectl -- taint nodes minikube owner=vivek:NoExecute
+  351  kubectl -- get pods -o wide
+  352  kubectl -- taint nodes minikube owner=vivek:NoExecute
+  353  kubectl -- get pods -o wide
+  354  kubectl -- taint nodes minikube owner=vivek:NoExecute-
+  355  kubectl -- get pods -o wide
+  356  history 
+  357  vi tolerate.yaml
+  358  kubectl -- taint nodes minikube owner=vivek:NoSchedule
+  359  cat tolerate.yaml 
+  360  kubectl -- create -f tolerate.yaml 
+  361  kubectl -- get pods -o wide
+  362  kubectl -- run xyz --image=httpd
+  363  kubectl -- get pods -o wide
+  364  kubectl -- taint nodes minikube owner=vivek:NoSchedule-
+  365  kubectl -- get pods -o wide
+  366  history 
+  367  kubectl -- get nodes
+  368  kubectl -- get pods
+  369  kubectl -- taint nodes minikube owner=vivek:NoExecute
+  370  kubectl -- get pods
+  371  alias k="kubectl --"
+  372  k get nodes
+  373  k get po
+  374  alias kgp="k get po"
+  375  kgp
+  376  k get nodes --show-labels
+  377  k label node app=security
+  378  k label node/minikube app=security
+  379  k get nodes --show-labels
+  380  k get node
+  381  k get pods
+  382  kubectl -- taint nodes minikube owner=vivek:NoExecute-
+  383  k get pods
+  384  k get pods -A | wc -l
+  385  k get pods -A 
+  386  k cordon minikube
+  387  k get pods -A 
+  388  watch k get pods -A 
+  389  k get pods -A 
+  390  k get no
+  391  k describe node/minikube
+  392  watch k get pods -A 
+  393  history 
+  394  k uncordon minikube
+  395  k get no
+  396  k describe node/minikube
+  397  history 
+  398  k get no
+  399  k drain minikube
+  400  k get no
+  401  k run hello --image=httpd
+  402  k get pods
+  403  k uncordon minikube
+  404  k get pods
+  405  k delete pod my-deployment-744ff984cd-fwskq
+  406  k get pods
+  407  k stop my-deployment-744ff984cd-mlw77
+  408  k top my-deployment-744ff984cd-mlw77
+  409  k top pod/my-deployment-744ff984cd-mlw77
+  410  k get pods
+  411  #k delete my-deployment-744ff984cd-mlw77 my-deployment-744ff984cd-nzwpw
+  412  k get rs
+  413  k delete my-deployment-744ff984cd-mlw77 my-deployment-744ff984cd-nzwpw
+  414  k delete pod/my-deployment-744ff984cd-mlw77 pod/my-deployment-744ff984cd-nzwpw
+  415  k get rs
+  416  k get pods
+  417  k scale
+  418  k scale --help
+  419  k get rs
+  420  kubectl scale --replicas=0 rs/my-deployment-744ff984cd
+  421  k scale --replicas=0 rs/my-deployment-744ff984cd
+  422  k get rs
+  423  k get pods
+  424  k scale --replicas=3 rs/my-deployment-744ff984cd
+  425  k get pods
+  426  k get deploy
+  427  k scale --replicas=3 my-deployment
+  428  k scale --replicas=3 deploy/my-deployment
+  429  k get deploy
+  430  k get pods
+  431  k scale --replicas=0 deploy/my-deployment
+  432  k get pods
+  433  history 
+  434  k get deploy
+  435  k get svc
+  436  k expose deploy/nginx-deployment --port=80 -- type=NodePort
+  437  k expose deploy/nginx-deployment --port=80 --type=NodePort
+  438  k get svc
+  439  k get ep
+  440  k edit deploy/nginx-deployment
+  441  k get deploy
+  442  k get pods
+  443  k get svc
+  444  k edit svc/nginx-deployment
+  445  k get nodes
+  446  ssh core@minikube
+  447  minikube ssh@minikube
+  448  history 
