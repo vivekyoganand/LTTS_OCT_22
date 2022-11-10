@@ -1,0 +1,185 @@
+ 483  #-----------------------------------#
+  484  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/deployments/d09.yaml
+  485  k apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/deployments/d09.yaml
+  486  k get pods
+  487  mkdie script
+  488  mkdir script
+  489  cd script/
+  490  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/deployments/d09.yaml
+  491  ls -ltr
+  492  vi d09.yaml 
+  493  alias kubectl="k"
+  494  kubectl get pods
+  495  kubectl get pod,replicaset,deployment
+  496  history 
+  497  kuebctl get pods
+  498  kubectl get pods
+  499  kubectl exec sise-deploy-747848cd97-r5pst -t -- curl -s 127.0.0.1:9876/info
+  500  cat d09.yaml 
+  501  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/deployments/d10.yaml
+  502  cat d10
+  503  cat d10.
+  504  ls -ltr
+  505  cat d10.yaml
+  506  vi diff d09.yaml d10.yaml
+  507  vim diff d09.yaml d10.yaml
+  508  vimdiff d09.yaml d10.yaml
+  509  kubectl get pods
+  510   10m
+  511  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/deployments/d10.yaml
+  512  kubectl get pods
+  513  kubectl describe sise-deploy-67fd84bd5c-lbb7w
+  514  kubectl describe pod/sise-deploy-67fd84bd5c-lbb7w
+  515  kubectl get pods
+  516  kubectl exec -it sise-deploy-67fd84bd5c-s54jx /bin/bash
+  517  kubectl exec sise-deploy-67fd84bd5c-s54jx -t -- curl -s 127.0.0.1:9876/info
+  518  kubectl rollout history deploy/sise-deploy
+  519  kubectl rollout undo deploy/sise-deploy --to-revision=1
+  520  kubectl ge tpods
+  521  kubectl get pods
+  522  kubectl delete deploy sise-deploy
+  523  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/envs/pod.yaml
+  524  cat pod.yaml 
+  525  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/envs/pod.yaml
+  526  kubectl get pods
+  527  kubectl exec envs -t -- curl -s 127.0.0.1:9876/info
+  528  cat pod.yaml 
+  529  ls -ltr
+  530  cat d09.yaml
+  531  kubectl exec envs -t -- curl -s 127.0.0.1:9876/env
+  532  kubectl exec envs -- printenv
+  533  kubectl delete pod/envs
+  534  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/healthz/pod.yaml
+  535  ls -ltr
+  536  cat pod.yaml.1
+  537  #timeout 
+  538  #TlS handshake issue
+  539  kubectl describe pod hc
+  540  kubectl describe pod 
+  541  kubectl get pod 
+  542  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/healthz/badpod.yaml
+  543  kubectl get pod 
+  544  cat badpod.yaml
+  545  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/healthz/badpod.yaml
+  546  cat badpod.yaml
+  547  vimadd pod.yaml.1 badpod.yaml 
+  548  vimdiff pod.yaml.1 badpod.yaml 
+  549  kubectl get pod 
+  550  kubectl describe pod badpod
+  551  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/healthz/ready.yaml
+  552  kubectl get pod 
+  553  wget  https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/healthz/ready.yaml
+  554  cat ready.yaml 
+  555  kubectl describe pod ready
+  556  kubectl delete pod/hc pod/ready pod/badpod
+  557  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/jobs/job.yaml
+  558  kubectl get pod 
+  559  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/jobs/job.yaml
+  560  cat job.yaml 
+  561  kubectl get jobs
+  562  kubectl logs countdown
+  563  kubectl describe jobs/countdown
+  564  kubectl logs jobs/countdown
+  565  kubectl get jobs
+  566  vi job.yaml 
+  567  kubectl delete job countdown
+  568  kubectl get pods --show-labels
+  569  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/labels/pod.yaml
+  570  kubectl get pods --show-labels
+  571  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/labels/pod.yaml
+  572  ls -ltr
+  573  cat pod.yaml.2
+  574  kubectl label pods labelex owner=michael
+  575  kubectl get pods --selector owner=michael
+  576  kubectl get pods --selector app=my-app
+  577  kubectl get pods -l env=development
+  578  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/labels/anotherpod.yaml
+  579  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/labels/anotherpod.yaml
+  580  kubectl get pods
+  581  cat anotherpod.yaml
+  582  kubectl get pods --show-labels
+  583  kubectl get pods -l 'env in (production, development)'
+  584  kubectl delete pods -l 'env in (production, development)'
+  585  kubectl delete pods labelex
+  586  kubectl get pods --show-labels
+  587  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/logging/pod.yaml
+  588  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/logging/pod.yaml
+  589  ls -ltr
+  590  cat pod.yaml.3
+  591  kubectl get pods
+  592  kubectl logs --tail=5 logme -c gen
+  593  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/logging/oneshotpod.yaml
+  594  kubectl get pods
+  595  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/logging/oneshotpod.yaml
+  596  alias w=wget
+  597  ls -ltr
+  598  alias l="ls -ltr"
+  599  cat oneshotpod.yaml
+  600  cat pod.yaml.3
+  601  kubectl logs -p oneshot -c gen
+  602  kubectl get pods
+  603  l
+  604  vi oneshotpod.yaml 
+  605  kubectl apply -f oneshotpod.yaml
+  606  kubectl get pods
+  607  kubectl get ns
+  608  kubectl describe ns default
+  609  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/ns/ns.yaml
+  610  w  https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/ns/ns.yaml
+  611  l
+  612  cat ns.yaml 
+  613  kubectl create ns xyz
+  614  kind: Namespace
+  615  metadata:
+  616  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/ns/ns.yaml
+  617  kubectl get pods --namespace=test
+  618  kubectl get ns
+  619  kubectl apply --namespace=test -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/ns/pod.yaml
+  620  kubectl get pods --namespace=test
+  621  w https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/ns/pod.yaml
+  622  l
+  623  cat pod.yaml.4
+  624  history 
+  625  kubectl get pods
+  626  kubectl label nodes minikube shouldrun=here
+  627  kubectl get nodes --show-labels
+  628  kubectl label --list nodes
+  629  history | grep -i list
+  630   k label --list node minikube
+  631  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/nodes/pod.yaml
+  632  k get pods
+  633  kubectl get pods --output=wide
+  634  kubectl run sise --image=quay.io/openshiftlabs/simpleservice:0.5.0 --port=9876
+  635  k get pods
+  636  kubectl exec sise -t -- curl -s localhost:9876/info
+  637  kubectl describe pod sise | grep IP:
+  638  export K8S_API="https://$(kubectl config get-clusters | tail -n 1)"
+  639  export API_TOKEN="$(kubectl config view -o jsonpath={.users[-1].user.token})"
+  640  export NAMESPACE="default"
+  641  export PODNAME="sise"
+  642  curl -s -k -H"Authorization: Bearer $API_TOKEN"
+  643  curl -s -k -H "Authorization: Bearer $API_TOKEN"
+  644  curl  -H "Authorization: Bearer $API_TOKEN"
+  645  env
+  646  curl -k "Authorization: Bearer $API_TOKEN"
+  647  kubectl delete pod,deployment sise
+  648  kubectl get po
+  649  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/pods/pod.yaml
+  650  wget  https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/pods/pod.yaml
+  651  l
+  652  vi pod.yaml.5
+  653  k get po
+  654  k describe pod/twocontainers 
+  655  kubectl create -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/pods/constraint-pod.yaml
+  656  wget https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/pods/constraint-pod.yaml
+  657  vim constraint-pod.yaml 
+  658  kubectl describe pod constraintpod
+  659  kubectl delete --all-namespaces --all
+  660  k get deploy
+  661  k delete $(k get deploy -q)
+  662  k delete $(k get deploy)
+  663  kubectl delete all --all --all-namespaces
+  664  k get deploy
+  665  k get pods
+  666  k get svc
+  667  history 
