@@ -1,0 +1,62 @@
+1  ssh-keygen 
+    2  ssh-copy-id ansible@172.31.2.10
+    3  ssh-copy-id ansible@172.31.4.160
+    4  sudo vi /etc/ansible/hosts
+    5  ansible -m ping all
+    6  sudo vi /etc/ansible/hosts
+    7  ansible -m ping all
+    8  tail -n /etc/ansible/hosts
+    9  tail -n 7 /etc/ansible/hosts
+   10  ansible -m yum -a "name=vim state=installed" PROD
+   11  ansible -m yum -a "name=postgresql state=installed" PROD
+   12  ansible -m yum -a "name=postgresql state=installed" PROD -b
+   13  history 
+   14  tail -n 7 /etc/ansible/hosts
+   15  ansible-doc -l
+   16  ansible-doc -l | grep - aws
+   17  ansible-doc -l | grep -i aws
+   18  ansible-doc -l | grep -i azure
+   19  ansible-doc -l | grep -i gcp
+   20  ansible-doc -l | grep -i yum
+   21  ansible-doc -l | grep -i service
+   22  ansible-doc -l | grep -i network
+   23  ansible-doc -l | grep -i vmware
+   24  ansible-doc -l | wc -l
+   25  ssh-copy-id ansible@172.31.15.211
+   26  sudo vi /etc/ansible/hosts 
+   27  ansible -m ping PROD
+   28  ansible -m command -a uptime PROD 
+   29  ansible -a uptime PROD 
+   30  ansible -m shell -a uptime PROD
+   31  ansible -m command -a "ls -ltr" PROD
+   32  ansible -m command -a "touch file1" PROD
+   33  ansible -m command -a "ls -ltr" PROD
+   34  ansible -m command -a "free -m" PROD
+   35  ansible -m command -a "lscpu" PROD
+   36  ansible -m command -a "lsmem" PROD
+   37  ansible -m command -a "uname -r" PROD
+   38  ansible -m command -a "uname -a" PROD
+   39  ansible -m command -a "pwd" PROD
+   40  ansible -m command -a "mkdir dir" PROD
+   41  ansible -m command -a "ls -ltr" PROD
+   42  ansible -m command -a "python{1..20}.py" PROD
+   43  ansible -m command -a "touch python{1..20}.py" PROD
+   44  ansible -m command -a "ls -ltr" PROD
+   45  ansible -m shell -a "touch python{1..20}.py" PROD
+   46  ansible -m command -a "ls -ltr" PROD
+   47  ansible -m shell -a "echo "Im in vivke" >> python2.py" PROD
+   48  ansible -m shell -a "echo "Im in vivek" >> python2.py"" PROD
+   49  ansible -m shell -a "echo 'Im in vivek' >> python2.py" PROD
+   50  ansible -m shell -a "cat python2.py" PROD
+   51  ansible -m shell -a "ps -ef" PROD
+   52  ansible -m shell -a "ps -ef | grep -i ssh" PROD
+   53  ansible -m yum -a "name=httpd state=installed" PROD -b
+   54  ansible -m yum -a "ps -ef | grep -i httpd" PROD -b
+   55  ansible -m shell -a "ps -ef | grep -i httpd" PROD -b
+   56  ansible -m service -a "name=httpd state=strated" PROD -b
+   57  ansible -m service -a "name=httpd state=started" PROD -b
+   58  ansible -m shell -a "ps -ef | grep -i httpd" PROD -b
+   59  ansible -m shell -a "top" PROD
+   60  top
+   61  ansible -m shell -a "cat /proc/cpuinfo" PROD
+   62  history 
